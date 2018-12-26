@@ -6,4 +6,16 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/fullscreen', function(req, res, next) {
+  res.render('fullscreen', { title: 'fullscreen' });
+});
+
+router.get('/serviceworker', function(req, res, next) {
+  res.render('serviceworker', { title: 'serviceworker' });
+});
+
+router.get('/homescreen', function(req, res, next) {
+  res.render('homescreen', { title: 'homescreen' });
+});
+
 module.exports = router;
