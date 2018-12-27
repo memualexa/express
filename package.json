@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "test": "DEBUG=express:* nodemon ./bin/www",
     "build-sw": "node ./buildsw",
-    "prebuild": "rm public/res1/*.js",
+    "prebuild": "rm -rf public/* && cp -R src/assets/. public",
     "build": "npm run build-sw",
+    "predev": "nodemon --help",
     "dev": "DEBUG=express:* node ./bin/www",
     "start": "node ./bin/www"
   },
@@ -18,6 +20,8 @@
     "morgan": "~1.9.0"
   },
   "devDependencies": {
+    "browserify": "^16.2.3",
+    "nodemon": "^1.18.9",
     "workbox-build": "^3.6.3"
   }
 }

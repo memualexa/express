@@ -1,3 +1,4 @@
+
 self.addEventListener('install', event => {
   console.log('res1 V2 installing…');
 
