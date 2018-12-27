@@ -1,22 +1,26 @@
-self.addEventListener('install', event => {
-  console.log('res1 V2 installing…');
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js');
 
-  // cache a cat SVG
-  event.waitUntil(
-    caches.open('static-v2').then(cache => cache.add('/res1/christmas-day.svg'))
-  );
-});
-
-self.addEventListener('activate', event => {
-  console.log('res1 V2 now ready to handle fetches!');
-});
-
-self.addEventListener('fetch', event => {
-  const url = new URL(event.request.url);
-
-  // serve the cat SVG from the cache if the request is
-  // same-origin and the path is '/dog.svg'
-  if (url.origin == location.origin && url.pathname == '/res1/candle.svg') {
-    event.respondWith(caches.match('/res1/christmas-day.svg'));
+if (workbox) {
+  console.log(`Yay! Workbox is loaded 🎉`);
+  
+  workbox.precaching.precacheAndRoute([
+  {
+    "url": "candle.svg",
+    "revision": "cb65a58be2667f3965b993f48fa946db"
+  },
+  {
+    "url": "christmas-day.svg",
+    "revision": "64e99eaf30d51a2e73665b5b10c0de2c"
   }
-});
+]);
+
+  workbox.core.setCacheNameDetails({
+    prefix: 'express',
+    suffix: 'v1',
+    precache: 'precache',
+    runtime: 'runtime'
+  });
+
+} else {
+  console.log(`Boo! Workbox didn't load 😬`);
+}

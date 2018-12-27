@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "build-sw": "node ./buildsw",
+    "prebuild": "rm public/res1/*.js",
+    "build": "npm run build-sw",
     "dev": "DEBUG=express:* node ./bin/www",
     "start": "node ./bin/www"
   },
@@ -13,5 +16,8 @@
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0"
+  },
+  "devDependencies": {
+    "workbox-build": "^3.6.3"
   }
 }

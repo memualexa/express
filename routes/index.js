@@ -10,7 +10,7 @@ router.get('/fullscreen', function(req, res, next) {
   res.render('fullscreen', { title: 'fullscreen' });
 });
 
-router.get('/serviceworker', function(req, res, next) {
+router.get('/res1', function(req, res, next) {
   res.render('serviceworker', { title: 'serviceworker' });
 });
 
