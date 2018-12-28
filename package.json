@@ -3,12 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "test": "DEBUG=express:* nodemon ./bin/www",
+    "watch": "chokidar 'src/**/*' -c 'npm run build'",
     "build-sw": "node ./buildsw",
     "prebuild": "rm -rf public/* && cp -R src/assets/. public",
     "build": "npm run build-sw",
-    "predev": "nodemon --help",
-    "dev": "DEBUG=express:* node ./bin/www",
+    "dev": "npm run watch & DEBUG=express:* nodemon --watch routes --watch views ./bin/www",
     "start": "node ./bin/www"
   },
   "dependencies": {
@@ -21,6 +20,7 @@
   },
   "devDependencies": {
     "browserify": "^16.2.3",
+    "chokidar-cli": "^1.2.1",
     "nodemon": "^1.18.9",
     "workbox-build": "^3.6.3"
   }

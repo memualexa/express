@@ -3,15 +3,6 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox
 if (workbox) {
   console.log(`Workbox is loaded 🎉`);
   
-  workbox.precaching.precacheAndRoute([]);
-
-  workbox.core.setCacheNameDetails({
-    prefix: 'express',
-    suffix: 'v1',
-    precache: 'precache',
-    runtime: 'runtime'
-  });
-
   // Force development builds
   workbox.setConfig({ debug: true });
   
@@ -20,7 +11,6 @@ if (workbox) {
 
   // The most verbose - displays all logs.
   workbox.core.setLogLevel(workbox.core.LOG_LEVELS.debug);
-  
   // // Shows logs, warnings and errors.
   // workbox.core.setLogLevel(workbox.core.LOG_LEVELS.log);
   
@@ -32,6 +22,15 @@ if (workbox) {
   
   // // Silence all of the Workbox logs.
   // workbox.core.setLogLevel(workbox.core.LOG_LEVELS.silent);
+  
+  workbox.precaching.precacheAndRoute([]);
+
+  workbox.core.setCacheNameDetails({
+    prefix: 'express',
+    suffix: 'v1',
+    precache: 'precache',
+    runtime: 'runtime'
+  });
 
   // Cache the Google Fonts stylesheets with a stale-while-revalidate strategy.
   workbox.routing.registerRoute(
