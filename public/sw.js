@@ -25,16 +25,32 @@ if (workbox) {
   
   workbox.precaching.precacheAndRoute([
   {
-    "url": "css/site.css",
-    "revision": "a5ef2684fba47ce6426051685b3e9d2b"
-  },
-  {
     "url": "fullscreen.html",
     "revision": "1a44be51e320dbc8423604df631c8ecd"
   },
   {
     "url": "homescreen.html",
     "revision": "0a5bd9a0599c13dac0a01967d60749ee"
+  },
+  {
+    "url": "index.html",
+    "revision": "4f8b4d4a756811fb7dccd0d016176c2a"
+  },
+  {
+    "url": "manifest.json",
+    "revision": "5a39fafb310de591510caa8781ee274b"
+  },
+  {
+    "url": "map.html",
+    "revision": "45cbad13905fd25f0200211ab2df2689"
+  },
+  {
+    "url": "tomtom.html",
+    "revision": "b9163c1870d5e82f12ebc335cda1b6e7"
+  },
+  {
+    "url": "css/site.css",
+    "revision": "33011daef9a714d014d57e255597c239"
   },
   {
     "url": "ico/android-chrome-144x144.png",
@@ -161,6 +177,10 @@ if (workbox) {
     "revision": "c7e88921553ac26e9c0b52ce584178aa"
   },
   {
+    "url": "ico/favicon.ico",
+    "revision": "8b05433391e81660ea792e07196596df"
+  },
+  {
     "url": "ico/mstile-144x144.png",
     "revision": "bdaa28b10b8136fa5be04b9d90b18d8a"
   },
@@ -193,12 +213,8 @@ if (workbox) {
     "revision": "64e99eaf30d51a2e73665b5b10c0de2c"
   },
   {
-    "url": "index.html",
-    "revision": "f3966e6972cca8ea75e9fd0755bdc8d3"
-  },
-  {
     "url": "js/site.js",
-    "revision": "caa7db742bc893b76084f17c8e026908"
+    "revision": "f59c290c2ec585cd2ac1c5c0d2f4f4a2"
   }
 ]);
 

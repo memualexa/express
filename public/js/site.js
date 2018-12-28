@@ -13,6 +13,8 @@ $(() => {
   $("#homescreen").on("click", e => {
     window.location.href="/homescreen.html";
   });
-
+  $("#map").on("click", e => {
+    window.location.href="/map.html";
+  });
 
 });
