@@ -23,10 +23,7 @@
 <nav class="navbar fixed-top navbar-light" style="background-color: #e3f2fd;">
 <ul class="nav justify-content-center">
   <li class="nav-item">
-    <a id="fullscreen" class="nav-link active" href="javascript:void(0);">full screen</a>
-  </li>
-  <li class="nav-item">
-    <a id="homescreen" class="nav-link" href="javascript:void(0);">home screen</a>
+    <a class="nav-link active" href="javascript:void(0);" onclick="window.location.href='/'">index</a>
   </li>
 </ul>
 </nav>
@@ -37,7 +34,10 @@
     &nbsp;
   </div>
   <div class="col-md-auto">
-    <div id="content"></div>
+
+<h1>homescreen</h1>
+
+<button id="fullScreen" type="button" class="btn btn-info">toggle full screen</button>
 
   </div>
   <div class="col col-lg-2">
@@ -53,6 +53,57 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <script src="js/site.js" async></script>
+
+<script>
+  /* Get the documentElement (<html>) to display the page in fullscreen */
+  var elem = document.documentElement;
+  
+  /* View in fullscreen */
+  function openFullscreen() {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+      elem.msRequestFullscreen();
+    }
+  }
+  
+  /* Close fullscreen */
+  function closeFullscreen() {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) { /* Firefox */
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { /* IE/Edge */
+      document.msExitFullscreen();
+    }
+  }
+  
+  var isFull = false;
+  document.addEventListener("fullscreenchange", function (event) {
+      if (document.fullscreenElement) {
+        isFull = true;
+      } else {
+        isFull = false;
+      }
+  });
+  
+  document.getElementById("fullScreen").addEventListener("click", function (event) {
+    if (isFull) {
+      closeFullscreen();
+    } else {
+      openFullscreen();
+    }
+  });
+
+</script>
+
   </body>
 </html>
+
+
