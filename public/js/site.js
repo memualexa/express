@@ -13,4 +13,6 @@ $(() => {
   $("#homescreen").on("click", e => {
     window.location.href="/homescreen.html";
   });
+
+
 });

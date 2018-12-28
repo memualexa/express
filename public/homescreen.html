@@ -37,7 +37,7 @@
 
 <h1>homescreen</h1>
 
-<button id="fullScreen" type="button" class="btn btn-info">toggle full screen</button>
+<button id="homescreen" type="button" class="btn btn-info">Add homescreen</button>
 
   </div>
   <div class="col col-lg-2">
@@ -55,52 +55,38 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 <script>
-  /* Get the documentElement (<html>) to display the page in fullscreen */
-  var elem = document.documentElement;
-  
-  /* View in fullscreen */
-  function openFullscreen() {
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-    } else if (elem.mozRequestFullScreen) { /* Firefox */
-      elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-      elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { /* IE/Edge */
-      elem.msRequestFullscreen();
-    }
-  }
-  
-  /* Close fullscreen */
-  function closeFullscreen() {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.mozCancelFullScreen) { /* Firefox */
-      document.mozCancelFullScreen();
-    } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
-      document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) { /* IE/Edge */
-      document.msExitFullscreen();
-    }
-  }
-  
-  var isFull = false;
-  document.addEventListener("fullscreenchange", function (event) {
-      if (document.fullscreenElement) {
-        isFull = true;
-      } else {
-        isFull = false;
-      }
-  });
-  
-  document.getElementById("fullScreen").addEventListener("click", function (event) {
-    if (isFull) {
-      closeFullscreen();
-    } else {
-      openFullscreen();
-    }
-  });
+let deferredPrompt;
 
+window.addEventListener('appinstalled', (e) => {
+  console.log('a2hs', 'installed');
+});
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+  console.log('beforeinstallprompt');
+});
+
+document.getElementById("homescreen").addEventListener("click", e => {
+  deferredPrompt.prompt();
+  // Wait for the user to respond to the prompt
+  deferredPrompt.userChoice
+  .then((choiceResult) => {
+    if (choiceResult.outcome === 'accepted') {
+      console.log('User accepted the A2HS prompt');
+    } else {
+      console.log('User dismissed the A2HS prompt');
+    }
+    deferredPrompt = null;
+  })
+  .catch(e => {
+    console.log(e);
+  }); 
+});
+
+  
 </script>
 
   </body>

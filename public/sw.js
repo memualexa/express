@@ -34,7 +34,7 @@ if (workbox) {
   },
   {
     "url": "homescreen.html",
-    "revision": "5e95ee1baf93c80997cb5a7f20c8ea08"
+    "revision": "0a5bd9a0599c13dac0a01967d60749ee"
   },
   {
     "url": "ico/android-chrome-144x144.png",
@@ -198,7 +198,7 @@ if (workbox) {
   },
   {
     "url": "js/site.js",
-    "revision": "834b6dbab00db0f05f81265dd0050f07"
+    "revision": "caa7db742bc893b76084f17c8e026908"
   }
 ]);
 

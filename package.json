@@ -8,7 +8,7 @@
     "prebuild": "rm -rf public/* && cp -R src/assets/. public",
     "build": "npm run build-sw",
     "dev": "npm run watch & DEBUG=express:* nodemon --watch routes --watch views ./bin/www",
-    "start": "node ./bin/www"
+    "deploy": "git subtree push --prefix=public/ web master"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
