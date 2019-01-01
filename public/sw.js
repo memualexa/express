@@ -29,12 +29,16 @@ if (workbox) {
     "revision": "1a44be51e320dbc8423604df631c8ecd"
   },
   {
+    "url": "googlemaps.html",
+    "revision": "6c820625bc03ab1bd8a267d41a86edc2"
+  },
+  {
     "url": "homescreen.html",
     "revision": "0a5bd9a0599c13dac0a01967d60749ee"
   },
   {
     "url": "index.html",
-    "revision": "4f8b4d4a756811fb7dccd0d016176c2a"
+    "revision": "f2cd866cc04318edda48c61efcfa7d49"
   },
   {
     "url": "manifest.json",
@@ -43,6 +47,10 @@ if (workbox) {
   {
     "url": "map.html",
     "revision": "45cbad13905fd25f0200211ab2df2689"
+  },
+  {
+    "url": "mapbox.html",
+    "revision": "fb3e49d83c411a04599ad36b0fab848e"
   },
   {
     "url": "tomtom.html",
@@ -214,7 +222,7 @@ if (workbox) {
   },
   {
     "url": "js/site.js",
-    "revision": "f59c290c2ec585cd2ac1c5c0d2f4f4a2"
+    "revision": "4e55b4338544ba5538bc8be0bcb704a2"
   }
 ]);
 
